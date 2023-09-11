@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.micx.apitest.apiframework.cases.RentAreaReportTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.634 s <<< FAILURE! - in com.micx.apitest.apiframework.cases.RentAreaReportTest
-test_Case{TestCase}[1]  Time elapsed: 3.865 s  <<< ERROR!
-java.lang.RuntimeException: 接口响应异常
-	at com.micx.apitest.apiframework.cases.RentAreaReportTest.test_Case(RentAreaReportTest.java:67)
-
