@@ -31,8 +31,10 @@ spec:
             steps{
                 container(name: 'maven'){
                     sh"""
+                      ping -c 5 www.baidu.com
                       mvn clean test -X -Dmaven.repo.remote=https://maven.aliyun.com/repository/public
                       ls -last
+                      ping -c 5 www.baidu.com
                     """
                 }
             }
