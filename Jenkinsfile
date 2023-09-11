@@ -16,18 +16,19 @@ spec:
     image: maven:3.6.3-jdk-11-slim
     command: ["sleep", "3600"]  # 示例命令，这里使用 sleep 命令来保持容器运行
     tty: true
-    volumeMounts:
-    - mountPath: "/root/.m2/"
-      name: "cachedir"
-      readOnly: false    
-  volumes:
-    - hostPath:
-        path: "/var/run/docker.sock"
-      name: "dockersock"      
-    - name: "cachedir"
-      persistentVolumeClaim:
-        claimName: maven-pvc
 '''
+
+  //   volumeMounts:
+  //   - mountPath: "/root/.m2/"
+  //     name: "cachedir"
+  //     readOnly: false    
+  // volumes:
+  //   - hostPath:
+  //       path: "/var/run/docker.sock"
+  //     name: "dockersock"      
+  //   - name: "cachedir"
+  //     persistentVolumeClaim:
+  //       claimName: maven-pvc
         }
     } 
     stages {
