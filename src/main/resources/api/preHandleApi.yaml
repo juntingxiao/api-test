@@ -1,0 +1,20 @@
+name: preHandleApi
+url: /cpms-workorder/operation/preHandle
+method: post
+headers:
+  "Cpms": "${token}"
+  "content-type": "application/json"
+  "User-Agent": "PostmanRuntime/7.32.2"
+  "Platform": "PC"
+body: {
+  "faultName": "",
+  "problemDesc": "自动化测试",
+  "locationDetail": "dr1002 gW",
+  "faultType": "",
+  "classifyId": "${classifyId}",
+  "locationType": 0,
+  "classifyName": "综合维修",
+  "locationId": "",
+  "locationName": "",
+  "workOrderId": "${workOrderId}"
+}

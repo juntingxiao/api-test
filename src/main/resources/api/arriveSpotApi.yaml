@@ -1,0 +1,20 @@
+name: arriveSpotApi
+url: /cpms-workorder/operation/arriveSpot
+method: post
+desc: "到达现场"
+headers:
+  "Cpms": "${token}"
+  "content-type": "application/json"
+  "User-Agent": "PostmanRuntime/7.32.2"
+  "Platform": "PC"
+
+body: {
+  "ossFileName": {
+    "ossFileName": "${ossFileName}"
+  },
+  "workOrderId": "${workOrderId}"
+}
+
+#"ossFileName": {
+#  "ossFileName": "${ossFileName1}"
+#},

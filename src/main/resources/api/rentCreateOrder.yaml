@@ -1,0 +1,42 @@
+name: rentCreateOrderApi
+url: /cpms-workorder/workOrder/create
+method: post
+#reqType: json
+#headers: {
+#  "content-type": "application/json"
+#    "token": "${token}"
+#}
+headers:
+#  "Authorization": "Basic ${base64}"
+  "Cpms": "${token}"
+  "content-type": "application/json"
+  "User-Agent": "PostmanRuntime/7.32.2"
+  "Platform": "PC"
+
+#formParams:
+#  "username": "18700000011"
+#  "password": "hls_1014"
+
+#formParams:
+#  "username": "${username}"
+#  "password": "${password}"
+
+body: {
+  "areaType": "${areaType}",
+#  "attachmentReqList": [],
+  "classifyId": "",
+  "classifyName": "",
+  "contactMobile": "13800138000",
+  "locationDetail": "dr1002 gW",
+  "problemDesc": "自动化测试造数",
+  "projectName": "深圳万象前海",
+  "projectNo": "${projectNo}",
+  "shopName": "gW",
+  "shopNo": "dr1002",
+  "source": 20,
+  "tenantName": "接口自动化测试",
+  "workOrderType": "${workOrderType}"
+}
+
+#以上就是接口的Object描述，把接口看做对象
+#这里面的${username} 或者${token} 就是引用 或者读取 或者自动生成的数据填充进来

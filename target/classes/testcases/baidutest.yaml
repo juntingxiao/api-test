@@ -1,0 +1,62 @@
+name: "baidutest"
+desc: "测试百度"
+run: "off"
+
+environment:
+  #  baseUrl: "https://cpms-test.crland.com.cn"
+  baseUrl: "https://mixcpms-uat.crland.com.cn"
+  env: "test"
+
+
+#这里是执行步骤 （场景）
+steps:
+  - interfaceName: baiduApi
+    run: "on"
+    name: "获取百度数据"
+#    actionParams:
+#      username: "18700000012"
+#      password: "hls_1014"
+#    encryption: "base64"
+#    extracts:
+#      - key: "token"
+#        value: "$.data.tokenValue"
+#        save: "global"
+    #       - key: mobile
+    #         value: "$.xxxx"
+#    asserts:
+      #      - "${name}": "eq:xxxx"
+      #      - "${xxxx}": "contains:xxxx"
+      #      - "$.code": "eq:0"
+#      - key: "$.code"
+#        expression: "eq"
+#        value: "200"
+#        message: "测试断言错误"
+#      - key: "${name}"
+#        expression: "eq"
+#        value: "eq:xxxx"
+
+#  - interfaceName: rentCreateOrderApi
+#    name: "创建-租区工单"
+#    actionParams:
+#      projectNo: "20098"
+
+#    - clasName: xxxx
+#  - interfaceName: order
+#  - interfaceName: xxxx
+#提取的信息  提取的login 对应上面login接口，
+#  表示该接口需要提取，提取用value里面的表达式(JSONpath)，保存在内存字典里面 key用token
+#这里后面的接口有依赖需要用到token 就可以去字典里面找
+
+#extracts:
+#  - login:
+#      - key: token
+#        value: "$.token"
+#      - key: mobile
+#        value: "$.xxxx"
+#断言信息
+#asserts:
+#  - "${name}": "eq:xxxx"
+#  - "${xxxx}": "contains:xxxx"
+#  - "$.code": "eq:0"
+#这里就是一个场景用例的描述
+#上面的interfaceName 对应login.yaml  这个文件里面就是描述请求login接口的基本信息

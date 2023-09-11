@@ -1,0 +1,14 @@
+name: createRouteAddApi
+url: /cpms-workorder/plan/routeInfo/add
+method: post
+desc: "创建计划任务路线"
+headers:
+  "Cpms": "${token}"
+  "content-type": "application/json"
+  "User-Agent": "PostmanRuntime/7.32.2"
+  "Platform": "PC"
+
+body: {
+  "routeName": "${routeName}",
+  "jobTypeId": "${jobTypeId}"
+}

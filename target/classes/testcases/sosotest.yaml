@@ -1,0 +1,87 @@
+desc: "获取城市天气数据"
+name: "sosotest"
+#这里是执行步骤 （场景）
+run: "off"
+#引用其他用例
+referenceCaseName: baidutest
+#referenceCaseName: createOrder
+environment:
+#  baseUrl: "https://cpms-test.crland.com.cn"
+  baseUrl: "https://mixcpms-uat.crland.com.cn"
+  env: "uat"
+
+steps:
+#  登录
+  - interfaceName: loginApi
+    #引用其他用例
+    #    referenceCaseName: baidutest
+    run: "on"
+    name: "获取上海市天气数据"
+    runSql:
+      - beforeSql: "select id,name from mixc_cpms_auth_uat.sys_project_team where id = ?"
+        beforeSqlValue: [1582568235807096833]
+      - beforeSql: "select project_no from mixc_cpms_auth_uat.sys_project_team where name = ? and id = ?"
+        beforeSqlValue: ["${name}","${id}"]
+        afterSql: "select * from mixc_cpms_auth_uat.sys_project_team where id = ?"
+        afterSqlValue: ["${id}"]
+#    actionParams:
+#      city: "上海市"
+#      type: "1"
+    extracts:
+      - key: "token"
+        value: "$.data.tokenValue"
+        save: "global"
+    actionParams:
+      username: "18700000011"
+      password: "hls_1014"
+#    encryption: "base64"
+    #    encryption: "base64"
+#    extracts:
+#      - key: "token"
+#        value: "11111"
+#        save: "global"
+    #       - key: mobile
+    #         value: "$.xxxx"
+      #  创建租区工单
+#  创建工单
+  - interfaceName: rentCreateOrderApi
+    name: "创建-租区工单"
+    run: "off"
+    actionParams:
+      projectNo: "20098"
+    extracts:
+      - key: "workOrderId"
+        value: "$.data"
+        save: "global"
+    asserts:
+      - actual: "$.code"
+        expression: "eq"
+        expect: 0
+        message: "请求状态码错误"
+#    asserts:
+#      - actual: "$.code"
+#        expression: "eq"
+#        expect: "202"
+#        message: "测试断言错误1"
+#      - actual: "$.msg"
+#        expression: "eq"
+#        expect: "缺少apikey,请登录控制台生成"
+#        message: "测试断言错误2"
+#  - interfaceName: testApi
+#    run: "on"
+#    name: "获取深圳市天气数据"
+#    actionParams:
+#      city: "深圳市"
+#      type: "1"
+#      #    encryption: "base64"
+#      #    extracts:
+#      #      - key: "token"
+#      #        value: "$.data.tokenValue"
+#      #        save: "global"
+#      #       - key: mobile
+#      #         value: "$.xxxx"
+#    asserts:
+#      - key: "$.code"
+#        expression: "eq"
+#        value: "0"
+#        message: "测试断言错误3"

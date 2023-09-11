@@ -1,0 +1,56 @@
+name: "createPlan"
+desc: "创建计划任务流程"
+#运行开关
+run: "off"
+#引用其他用例
+#referenceCaseName: baidutest
+
+environment:
+  baseUrl: "https://cpms-test.crland.com.cn"
+#  baseUrl: "https://mixcpms-uat.crland.com.cn"
+  env: "test"
+
+steps:
+  #  登录
+  - interfaceName: loginApi
+    run: "on"
+    name: "登录"
+    actionParams:
+      username: "18700000012"
+      password: "hls_1014"
+    function:
+      functionName: "base64"
+    extracts:
+      - key: "token"
+        value: "$.data.tokenValue"
+        save: "global"
+    asserts:
+      - actual: "$.code"
+        expression: "eq"
+        expect: 0
+        message: "请求状态码错误"
+  #  获取巡检路线作业类型
+  - interfaceName: planJobTypeApi
+    name: "获取巡检路线-作业类型"
+    run: "on"
+    extracts:
+      - key: "jobTypeId"
+        value: "$.data[0].jobTypeId"
+        save: "global"
+      - key: "updateUserName"
+        value: "$.data[0].updater.userName"
+        save: "global"
+  #    referenceCaseName: loginApi
+  #    actionParams:
+  #      username: "18700000011"
+  #      password: "hls_1014"
+  #    encryption: "base64"
+#  创建巡检路线
+  - interfaceName: createRouteAddApi
+    name: "创建路线"
+    run: "on"
+    function:
+      functionName: "randomString"
+    actionParams:
+      routeName: "自动化巡检路线${randomString}"
+#      jobTypeId: "1649318936831107073"

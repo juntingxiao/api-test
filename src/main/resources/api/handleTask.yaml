@@ -1,0 +1,29 @@
+name: handleTaskApi
+url: /cpms-workorder/operation/handleTask
+method: post
+desc: "处理完成工单"
+headers:
+  "Cpms": "${token}"
+  "content-type": "application/json"
+  "User-Agent": "PostmanRuntime/7.32.2"
+  "Platform": "PC"
+
+body: {
+  "approveComment": "自动化测试完成",
+  "assistList": [
+
+  ],
+  "classifyId": "${classifyId}",
+  "classifyName": "综合维修",
+  "faultName": "安装门锁",
+  "faultType": "12",
+  "isCharge": false,
+  "material": "",
+  "ossFileNames": [
+    {
+      "ossFileName": "${ossFileName}"
+    }
+  ],
+  "signUrl": "",
+  "workOrderId": "${workOrderId}"
+}

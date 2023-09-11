@@ -1,0 +1,1 @@
+{"msg_type":"post","content":{"post":{"zh_cn":{"title":"商业物业接口自动化","content":[[{"tag":"text","text":"时间：2023-07-10 20:32:191"}],[{"tag":"text","text":"总用例数：0"}],[{"tag":"text","text":"成功：0"}],[{"tag":"text","text":"失败：0"}]]}}}}

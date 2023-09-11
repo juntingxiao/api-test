@@ -1,0 +1,12 @@
+name: customers
+url: /customers
+method: get
+desc: "get customer list"
+headers:
+  "User-Agent": "PostmanRuntime/7.32.3"
+queryParams:
+  "keywords":
+  "language":
+  "limit": 2
+  "offset":
+  "sort_by":

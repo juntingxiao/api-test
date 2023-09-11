@@ -1,0 +1,19 @@
+name: "customers"
+desc: "测试客户列表"
+run: "on"
+
+environment:
+  baseUrl:
+  env: "test"
+
+
+#这里是执行步骤 （场景）
+steps:
+  - interfaceName: customers
+    run: "on"
+    name: "获取客户数据"
+    asserts:
+      - actual: "$.data.customers[1].customer_id"
+        expression: "eq"
+        expect: 10691414
+        message: "customer id 错误"

@@ -1,0 +1,11 @@
+name: uploadFileApi
+url: /cpms-workorder/oss/uploadFile
+method: post
+desc: "上传到达现场的照片"
+headers:
+  "Cpms": "${token}"
+  "content-type": "multipart/form-data"
+  "User-Agent": "PostmanRuntime/7.32.2"
+  "Platform": "PC"
+
+uploadFile: "${uploadFile}"

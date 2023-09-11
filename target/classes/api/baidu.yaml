@@ -1,0 +1,12 @@
+name: baiduApi
+url: https://www.baidu.com
+method: get
+#reqType: json
+#headers: {
+#  "content-type": "application/json"
+#    "token": "${token}"
+#}
+
+#queryParams:
+#  "city": "${city}"
+#  "type": "${type}"
