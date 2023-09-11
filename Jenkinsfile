@@ -8,6 +8,10 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
+  - name: busybox
+    image: busybox:latest
+    command: ["sleep", "3600"]  # 示例命令，这里使用 sleep 命令来保持容器运行
+    tty: true 
   - name: maven
     image: maven:3.6.3-jdk-11-slim
     command: ["sleep", "3600"]  # 示例命令，这里使用 sleep 命令来保持容器运行
@@ -29,12 +33,15 @@ spec:
     stages {
         stage('building'){
             steps{
-                container(name: 'maven'){
+                container(name: 'busybox'){
                     sh"""
                       ping -c 5 www.baidu.com
+                    """
+                }
+                container(name: 'maven'){
+                    sh"""
                       mvn clean test -X -Dmaven.repo.remote=https://maven.aliyun.com/repository/public
                       ls -last
-                      ping -c 5 www.baidu.com
                     """
                 }
             }
