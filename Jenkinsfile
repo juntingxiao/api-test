@@ -43,7 +43,7 @@ spec:
                     sh"""
                       mvn clean test -X -Dmaven.repo.remote=https://maven.aliyun.com/repository/public
                       ls -last
-                      sleep 60
+                      sleep 600
                     """
                 }
             }
