@@ -1,5 +1,4 @@
-pipeline {
-   
+pipeline {   
     //agent any
     agent{
         kubernetes {
@@ -27,14 +26,13 @@ spec:
 '''
         }
     } 
-
-
     stages {
         stage('building'){
             steps{
                 container(name: 'maven'){
                     sh"""
                       mvn clean test -X -Dmaven.repo.remote=https://maven.aliyun.com/repository/public
+                      ls -last
                     """
                 }
             }
