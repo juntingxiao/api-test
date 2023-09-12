@@ -1,0 +1,33 @@
+pipeline {   
+    agent {
+        label 'local-agent'
+    }
+
+    stages {
+        stage('building'){
+            steps{
+                    sh"""
+                      ping -c 5 www.baidu.com
+                    """
+                    sh"""
+                      mvn clean test -X -Dmaven.repo.remote=https://maven.aliyun.com/repository/public
+                      ls -last
+                      sleep 7200
+                    """
+            }
+        }       
+    }
+    post {                
+        // If Maven was able to run the tests, even if some of the test
+        // failed, record the test results and archive the jar file.
+        success { allure([
+            includeProperties: false,
+            jdk: '',
+            properties: [],
+            reportBuildPolicy: 'ALWAYS',
+            results: [[path: 'allure-results']]
+        ])
+        }
+    }
+
+}
