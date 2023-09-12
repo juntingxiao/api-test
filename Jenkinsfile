@@ -42,9 +42,9 @@ spec:
                 }
                 container(name: 'maven'){
                     sh"""
-                      #mvn clean test -X -Dmaven.repo.remote=https://maven.aliyun.com/repository/public
-                      #ls -last
-                      sleep 7200
+                      mvn clean test -X -Dmaven.repo.remote=https://maven.aliyun.com/repository/public
+                      ls -last
+                      #sleep 7200
                     """
                 }
             }
